@@ -101,10 +101,12 @@ button {
   position: relative;
 }
 
-.modal-content img {
+/* .modal-content img {
   max-width: 100%;
+} */
+.image-carousel img {
+  width: 100%;
 }
-
 .modal-close {
   position: absolute;
   right: 0;
