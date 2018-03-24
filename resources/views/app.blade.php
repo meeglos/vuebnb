@@ -7,11 +7,15 @@
   <title>Vuebnb</title>
   <link rel="stylesheet" href="node_modules/open-sans-all/css/open-sans.css">
   <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
-  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+
+  <script type="text/javascript">
+    window.vuebnb_listing_model = "{!! addslashes(json_encode($model)) !!}"
+  </script>
 </head>
 <body>
 <div id="toolbar">
-  <img class="icon" src="logo.png">
+  <img class="icon" src="{{ asset('images/logo.png') }}">
   <h1>vuebnb</h1>
 </div>
 <div id="app">
@@ -63,12 +67,11 @@
       &times;
     </button>
     <div class="modal-content">
-      <img src="sample/header.jpg" alt="">
+      <img v-bind:src="images[0]"/>
     </div>
   </div>
 </div>
-<script src="node_modules/vue/dist/vue.js"></script>
-<script src="sample/data.js"></script>
-<script src="app.js"></script>
+
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
