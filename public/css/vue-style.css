@@ -99,3 +99,61 @@ body.modal-open {
 	bottom: 20px;
 	left: 20px;
 }
+
+hr {
+  border: 0;
+  border-top: 1px solid #dce0e0;
+}
+.list {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 2em 0;
+}
+.list .title {
+  flex: 1 1 25%;
+}
+.list .content {
+  flex: 1 1 75%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.list .list-item {
+  flex: 0 0 50%;
+  margin-bottom: 16px;
+}
+.list .list-item > i {
+  width: 35px;
+}
+@media (max-width: 743px) {
+.list .title {
+    flex: 1 1 33%;
+}
+.list .content {
+    flex: 1 1 67%;
+}
+.list .list-item {
+    flex: 0 0 100%;
+}
+}
+
+p {
+  white-space: pre-wrap;
+}
+.contracted {
+  height: 250px;
+  overflow: hidden;
+}
+.about button.more {
+  background: transparent;
+  border: 0;
+  color: #008489;
+  padding: 0;
+  font-size: 17px;
+  font-weight: bold;
+}
+.about button.more:hover, 
+.about button.more:focus, 
+.about button.more:active {
+  text-decoration: underline;
+  outline: none;
+}
