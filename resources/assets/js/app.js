@@ -7,6 +7,7 @@ model = populateAmenitiesAndPrices(model);
 
 import ImageCarousel from '../components/ImageCarousel.vue';
 import ModalWindow from '../components/ModalWindow.vue';
+import HeaderImage from '../components/HeaderImage.vue';
 
 var app = new Vue({
 	el: '#app',
@@ -18,7 +19,8 @@ var app = new Vue({
 	}),
 	components: {
 		ImageCarousel,
-		ModalWindow
+		ModalWindow,
+		HeaderImage
 	},
 	methods: {
 		openModal() {
