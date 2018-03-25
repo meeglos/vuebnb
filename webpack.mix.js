@@ -23,4 +23,11 @@ mix
     .options({
           extractVueStyles: 'public/css/vue-style.css'
     })
+    .webpackConfig({
+      resolve: {
+        alias: {
+          'vue$': 'vue/dist/vue.runtime.esm.js'
+        }
+      }
+    })
 ;
