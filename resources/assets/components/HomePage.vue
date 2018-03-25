@@ -32,33 +32,10 @@
 		},
 	components: {
 		ListingSummary
+		}
 	}
-	// beforeRouteEnter(to, from, next) {
-	// 	let serverData = JSON.parse(window.vuebnb_server_data);
-	// 	if (to.path === serverData.path) {
-	// 		let listing_groups = groupByCountry(serverData.listings);
-	// 		next(component => component.listing_groups = listing_groups);
-	// 	} else {
-	// 		axios.get(`/api/`).then(({ data }) => {
-	// 			let listing_groups = groupByCountry(data.listings);
-	// 			next(component => component.listing_groups = listing_groups);
-	// 		});
-	// 	}
-	// }
-  }
 </script>
 <style>
-.home-container {
-	margin: 0 auto;
-	padding: 0 25px;
-}
-
-@media (min-width: 1131px) {
-	.home-container {
-		width: 1080px;
-	}
-}
-
 .listing-summary-group {
 	padding-bottom: 20px;
 }
