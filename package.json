@@ -17,6 +17,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "font-awesome": "^4.7.0",
         "npm-font-open-sans": "^1.1.0"
     }
 }

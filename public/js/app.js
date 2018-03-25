@@ -251,7 +251,8 @@ model = Object(__WEBPACK_IMPORTED_MODULE_2__helpers__["a" /* populateAmenitiesAn
 
 // Start: <image-carousel component> ##################################
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('image-carousel', {
-	template: '<div class="image-carousel">\n              <img v-bind:src="image"/>\n            </div>',
+	props: ['images'],
+	template: '<div class="image-carousel">\n\t\t\t  <img v-bind:src="image"/>\n\t\t\t  <div class="controls">\n\t\t\t  \t<carousel-control dir="left"></carousel-control>\n\t\t\t  \t<carousel-control dir="right"></carousel-control>\n\t\t\t  </div>\n            </div>',
 	data: function data() {
 		return {
 			images: ['/images/1/Image_1.jpg', '/images/1/Image_2.jpg', '/images/1/Image_3.jpg', '/images/1/Image_4.jpg'],
@@ -262,6 +263,17 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('image-carousel', {
 	computed: {
 		image: function image() {
 			return this.images[this.index];
+		}
+	},
+	components: {
+		'carousel-control': {
+			template: '<i :class="classes"></i>',
+			props: ['dir'],
+			computed: {
+				classes: function classes() {
+					return 'carousel-control fa fa-2x fa-chevron-' + this.dir;
+				}
+			}
 		}
 	}
 });
