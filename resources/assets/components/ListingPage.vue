@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header-image v-if="images[0]" :image-url="images[0]" @header-clicked="openModal"></header-image>
+    <header-image v-if="images[0]" :image-url="images[0]" @header-clicked="openModal" :id="id"></header-image>
     <div class="listing-container">
       <div class="heading">
         <h1>{{ title }}</h1>
@@ -53,7 +53,8 @@
         address: null,
         amenities: [],
         prices: [],
-        images: []
+        images: [],
+        id: null
       }
     },
     components: {

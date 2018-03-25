@@ -185,6 +185,22 @@ hr {
 	left: 20px;
 }
 
+.listing-save {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.listing-save .fa-heart-o {
+  color: #ffffff;
+}
+.listing-save .fa-heart {
+  color: #ff5a5f;
+}
+.listing-save button .fa-heart-o {
+  color: #808080;
+}
+
 p {
   white-space: pre-wrap;
 }
@@ -251,6 +267,7 @@ p {
 
 .listing-summary {
   flex: 0 0 auto;
+  position: relative;
 }
 .listing-summary a {
   text-decoration: none;
@@ -282,4 +299,10 @@ p {
 .listing-summary .info.address {
   font-size: 14px;
   line-height: 18px;
+}
+@media (max-width: 400px) {
+.listing-summary .listing-save {
+    left: 15px;
+    right: auto;
+}
 }

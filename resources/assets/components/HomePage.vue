@@ -10,9 +10,6 @@
 	import ListingSummaryGroup from './ListingSummaryGroup.vue';
 	import { groupByCountry } from '../js/helpers';
 
-  // let serverData = JSON.parse(window.vuebnb_server_data);
-  // let listing_groups = groupByCountry(serverData.listings);
-
   export default {
 		mixins: [ routeMixin ],
     data() {
