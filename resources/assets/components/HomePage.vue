@@ -11,16 +11,31 @@
 <script>
   import { groupByCountry } from '../js/helpers';
   import ListingSummary from './ListingSummary.vue';
+  import axios from 'axios';
 
   let serverData = JSON.parse(window.vuebnb_server_data);
   let listing_groups = groupByCountry(serverData.listings);
 
   export default {
     data() {
-		return { listing_groups }
+		return {
+			listing_groups: []
+		};
     },
 	components: {
 		ListingSummary
+	},
+	beforeRouteEnter(to, from, next) {
+		let serverData = JSON.parse(window.vuebnb_server_data);
+		if (to.path === serverData.path) {
+			let listing_groups = groupByCountry(serverData.listings);
+			next(component => component.listing_groups = listing_groups);
+		} else {
+			axios.get(`/api/`).then(({ data }) => {
+				let listing_groups = groupByCountry(data.listings);
+				next(component => component.listing_groups = listing_groups);
+			});
+		}
 	}
   }
 </script>
