@@ -7,6 +7,7 @@
   <title>Vuebnb</title>
   
   <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('css/vue-style.css') }}" type="text/css">
 
   <script type="text/javascript">
     window.vuebnb_listing_model = "{!! addslashes(json_encode($model)) !!}"

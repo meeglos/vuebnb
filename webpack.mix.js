@@ -20,4 +20,7 @@ mix
     ], 'public/css/style.css')
     .copy('node_modules/npm-font-open-sans/fonts', 'public/fonts')
     .copy('node_modules/font-awesome/fonts', 'public/fonts')
+    .options({
+          extractVueStyles: 'public/css/vue-style.css'
+    })
 ;
