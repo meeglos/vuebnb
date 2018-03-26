@@ -6,21 +6,26 @@
   </div>
 </template>
 <script>
-	import routeMixin from '../js/route-mixin';
+	// import routeMixin from '../js/route-mixin';
 	import ListingSummaryGroup from './ListingSummaryGroup.vue';
 	import { groupByCountry } from '../js/helpers';
 
   export default {
-		mixins: [ routeMixin ],
-    data() {
-			return {
-				listing_groups: []
-			};
-		},
+		// mixins: [ routeMixin ],
+    // data() {
+		// 	return {
+		// 		listing_groups: []
+		// 	};
+		// },
 		methods: {
 				assignData({ listings }) {
-						this.listing_groups = groupByCountry(listings);
+					this.listing_groups = groupByCountry(listings);
 				},
+		},
+		computed: {
+			listing_groups() {
+				return groupByCountry(this.$store.state.listing_summaries);
+			}
 		},
 		components: {
 			ListingSummaryGroup
