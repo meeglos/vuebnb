@@ -9509,6 +9509,18 @@ __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODU
 				state.listing_summaries = data.listings;
 			}
 		}
+<<<<<<< HEAD
+=======
+	},
+	getters: {
+		getListing: function getListing(state) {
+			return function (id) {
+				return state.listings.find(function (listing) {
+					return id == listing.id;
+				});
+			};
+		}
+>>>>>>> Saved page and navbar changes
 	}
 }));
 
@@ -11576,6 +11588,10 @@ if (false) {
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
+<<<<<<< HEAD
+
+=======
+>>>>>>> Saved page and navbar changes
 
 
 
@@ -11583,7 +11599,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue__["a" /* default */].use(__WEBPACK_IMPORTED_MODU
 
 
 
-
+<<<<<<< HEAD
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 	mode: 'history',
 	routes: [{ path: '/', component: __WEBPACK_IMPORTED_MODULE_5__components_HomePage_vue___default.a, name: 'home' }, { path: '/listing/:listing', component: __WEBPACK_IMPORTED_MODULE_4__components_ListingPage_vue___default.a, name: 'listing' }, { path: '/saved', component: __WEBPACK_IMPORTED_MODULE_6__components_SavedPage_vue___default.a, name: 'saved' }],
@@ -11599,6 +11615,14 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 				});
 			};
 		}
+=======
+
+var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
+	mode: 'history',
+	routes: [{ path: '/', component: __WEBPACK_IMPORTED_MODULE_5__components_HomePage_vue___default.a, name: 'home' }, { path: '/listing/:listing', component: __WEBPACK_IMPORTED_MODULE_4__components_ListingPage_vue___default.a, name: 'listing' }, { path: '/saved', component: __WEBPACK_IMPORTED_MODULE_6__components_SavedPage_vue___default.a, name: 'saved' }],
+	scrollBehavior: function scrollBehavior(to, from, savedPosition) {
+		return { x: 0, y: 0 };
+>>>>>>> Saved page and navbar changes
 	}
 });
 
@@ -13192,8 +13216,27 @@ function handleScroll (
 
     if (!shouldScroll) {
       return
+<<<<<<< HEAD
     }
 
+    if (typeof shouldScroll.then === 'function') {
+      shouldScroll.then(function (shouldScroll) {
+        scrollToPosition((shouldScroll), position);
+      }).catch(function (err) {
+        if (true) {
+          assert(false, err.toString());
+        }
+      });
+    } else {
+      scrollToPosition(shouldScroll, position);
+=======
+>>>>>>> Saved page and navbar changes
+    }
+  });
+}
+
+<<<<<<< HEAD
+=======
     if (typeof shouldScroll.then === 'function') {
       shouldScroll.then(function (shouldScroll) {
         scrollToPosition((shouldScroll), position);
@@ -13208,6 +13251,7 @@ function handleScroll (
   });
 }
 
+>>>>>>> Saved page and navbar changes
 function saveScrollPosition () {
   var key = getStateKey();
   if (key) {
@@ -13920,6 +13964,7 @@ var HashHistory = (function (History$$1) {
   HashHistory.prototype.go = function go (n) {
     window.history.go(n);
   };
+<<<<<<< HEAD
 
   HashHistory.prototype.ensureURL = function ensureURL (push) {
     var current = this.current.fullPath;
@@ -13945,6 +13990,63 @@ function checkFallback (base) {
   }
 }
 
+function ensureSlash () {
+  var path = getHash();
+  if (path.charAt(0) === '/') {
+=======
+
+  HashHistory.prototype.ensureURL = function ensureURL (push) {
+    var current = this.current.fullPath;
+    if (getHash() !== current) {
+      push ? pushHash(current) : replaceHash(current);
+    }
+  };
+
+  HashHistory.prototype.getCurrentLocation = function getCurrentLocation () {
+    return getHash()
+  };
+
+  return HashHistory;
+}(History));
+
+function checkFallback (base) {
+  var location = getLocation(base);
+  if (!/^\/#/.test(location)) {
+    window.location.replace(
+      cleanPath(base + '/#' + location)
+    );
+>>>>>>> Saved page and navbar changes
+    return true
+  }
+  replaceHash('/' + path);
+  return false
+}
+
+<<<<<<< HEAD
+function getHash () {
+  // We can't use window.location.hash here because it's not
+  // consistent across browsers - Firefox will pre-decode it!
+  var href = window.location.href;
+  var index = href.indexOf('#');
+  return index === -1 ? '' : href.slice(index + 1)
+}
+
+function getUrl (path) {
+  var href = window.location.href;
+  var i = href.indexOf('#');
+  var base = i >= 0 ? href.slice(0, i) : href;
+  return (base + "#" + path)
+}
+
+function pushHash (path) {
+  if (supportsPushState) {
+    pushState(getUrl(path));
+  } else {
+    window.location.hash = path;
+  }
+}
+
+=======
 function ensureSlash () {
   var path = getHash();
   if (path.charAt(0) === '/') {
@@ -13977,6 +14079,7 @@ function pushHash (path) {
   }
 }
 
+>>>>>>> Saved page and navbar changes
 function replaceHash (path) {
   if (supportsPushState) {
     replaceState(getUrl(path));
@@ -14723,6 +14826,7 @@ module.exports = (
 
 "use strict";
 
+<<<<<<< HEAD
 
 // btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
 
@@ -14758,12 +14862,56 @@ function btoa(input) {
 }
 
 module.exports = btoa;
+=======
+
+// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
+
+var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+>>>>>>> Saved page and navbar changes
+
+function E() {
+  this.message = 'String contains an invalid character';
+}
+E.prototype = new Error;
+E.prototype.code = 5;
+E.prototype.name = 'InvalidCharacterError';
+
+<<<<<<< HEAD
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+=======
+function btoa(input) {
+  var str = String(input);
+  var output = '';
+  for (
+    // initialize result and counter
+    var block, charCode, idx = 0, map = chars;
+    // if the next str index does not exist:
+    //   change the mapping table to "="
+    //   check if d has no fractional digits
+    str.charAt(idx | 0) || (map = '=', idx % 1);
+    // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
+    output += map.charAt(63 & block >> 8 - idx % 1 * 8)
+  ) {
+    charCode = str.charCodeAt(idx += 3 / 4);
+    if (charCode > 0xFF) {
+      throw new E();
+    }
+    block = block << 8 | charCode;
+  }
+  return output;
+}
+
+module.exports = btoa;
 
 
 /***/ }),
 /* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
+>>>>>>> Saved page and navbar changes
 "use strict";
 
 
@@ -15240,6 +15388,7 @@ function forEachValue (obj, fn) {
 
 function isObject (obj) {
   return obj !== null && typeof obj === 'object'
+<<<<<<< HEAD
 }
 
 function isPromise (val) {
@@ -15289,6 +15438,57 @@ Module.prototype.update = function update (rawModule) {
   }
 };
 
+=======
+}
+
+function isPromise (val) {
+  return val && typeof val.then === 'function'
+}
+
+function assert (condition, msg) {
+  if (!condition) { throw new Error(("[vuex] " + msg)) }
+}
+
+var Module = function Module (rawModule, runtime) {
+  this.runtime = runtime;
+  this._children = Object.create(null);
+  this._rawModule = rawModule;
+  var rawState = rawModule.state;
+  this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
+};
+
+var prototypeAccessors$1 = { namespaced: { configurable: true } };
+
+prototypeAccessors$1.namespaced.get = function () {
+  return !!this._rawModule.namespaced
+};
+
+Module.prototype.addChild = function addChild (key, module) {
+  this._children[key] = module;
+};
+
+Module.prototype.removeChild = function removeChild (key) {
+  delete this._children[key];
+};
+
+Module.prototype.getChild = function getChild (key) {
+  return this._children[key]
+};
+
+Module.prototype.update = function update (rawModule) {
+  this._rawModule.namespaced = rawModule.namespaced;
+  if (rawModule.actions) {
+    this._rawModule.actions = rawModule.actions;
+  }
+  if (rawModule.mutations) {
+    this._rawModule.mutations = rawModule.mutations;
+  }
+  if (rawModule.getters) {
+    this._rawModule.getters = rawModule.getters;
+  }
+};
+
+>>>>>>> Saved page and navbar changes
 Module.prototype.forEachChild = function forEachChild (fn) {
   forEachValue(this._children, fn);
 };

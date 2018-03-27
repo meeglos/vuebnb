@@ -19,12 +19,7 @@ let router = new VueRouter({
 	],
 	scrollBehavior (to, from, savedPosition) {
 		return { x: 0, y: 0 }
-	},
-	getters: {
-		getListing(state) {
-				return id => state.listings.find(listing => id == listing.id);
-		}
-	}
+	}	
 });
 
 router.beforeEach((to, from, next) => {
@@ -41,7 +36,6 @@ router.beforeEach((to, from, next) => {
 			store.commit('addData', { route: to.name, data });
 			next();
 		});
-
 	}
 	else {
 		store.commit('addData', { route: to.name, data: serverData });
