@@ -20,7 +20,8 @@
   .carousel-control {
     padding: 1rem;
     color: #ffffff;
-    opacity: 0.85
+    opacity: 0.85;
+    cursor: pointer;
   }
 
   @media (min-width: 744px) {

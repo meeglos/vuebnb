@@ -99,7 +99,8 @@
 .carousel-control {
   padding: 1rem;
   color: #ffffff;
-  opacity: 0.85
+  opacity: 0.85;
+  cursor: pointer;
 }
 @media (min-width: 744px) {
 .carousel-control {
@@ -348,4 +349,42 @@ p {
 }
 .listing-summaries > .listing-summary {
   margin-right: 15px;
+}
+
+#login form {
+  padding-top: 40px;
+}
+@media (min-width: 744px) {
+#login form {
+    padding-top: 80px;
+}
+}
+#login .form-control {
+  margin-bottom: 1em;
+}
+#login input[type=email],
+#login input[type=password],
+#login button,
+#login label {
+  width: 100%;
+  font-size: 19px !important;
+  line-height: 24px;
+  color: #484848;
+  font-weight: 300;
+}
+#login input {
+  background-color: transparent;
+  padding: 11px;
+  border: 1px solid #dbdbdb;
+  border-radius: 2px;
+  box-sizing:border-box
+}
+#login button {
+  background-color: #4fc08d;
+  color: #ffffff;
+  cursor: pointer;
+  border: #4fc08d;
+  border-radius: 4px;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }

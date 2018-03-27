@@ -8,6 +8,7 @@ import store from './store';
 import ListingPage from '../components/ListingPage.vue';
 import HomePage from '../components/HomePage.vue';
 import SavedPage from '../components/SavedPage.vue';
+import LoginPage from '../components/LoginPage.vue';
 
 
 let router = new VueRouter({
@@ -15,7 +16,8 @@ let router = new VueRouter({
 	routes: [
 		{ path: '/', component: HomePage, name: 'home' },
 		{ path: '/listing/:listing', component: ListingPage, name: 'listing' },
-		{ path: '/saved', component: SavedPage, name: 'saved' }
+		{ path: '/saved', component: SavedPage, name: 'saved' },
+		{ path: '/login', component: LoginPage, name: 'login' }
 	],
 	scrollBehavior (to, from, savedPosition) {
 		return { x: 0, y: 0 }
@@ -28,6 +30,7 @@ router.beforeEach((to, from, next) => {
 		to.name === 'listing'
 			? store.getters.getListing(to.params.listing)
 			: store.state.listing_summaries.length > 0
+		|| to.name === 'login'
 	) {
 		next();
 	}
