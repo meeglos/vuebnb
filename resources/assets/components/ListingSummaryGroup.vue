@@ -1,6 +1,6 @@
 <template>
 	<div class="listing-summary-group">
-		<h1>Places in {{ country }}</h1>
+		<h1>Places in {{ country }} <span class="count">({{ listings.length }})</span></h1>
 		<div class="listing-carousel">
 			<div class="controls">
 				<carousel-control dir="left" @change-image="change" :style="leftArrowStyle"></carousel-control>
@@ -22,7 +22,7 @@
   const listingSummaryWidth = 365;
 
   export default {
-	props: [ 'country', 'listings' ],
+	props: [ 'country', 'listings'],
 	data() {
 		return {
 			offset: 0
@@ -63,6 +63,12 @@
 <style>
 	.listing-summary-group {
 		padding-bottom: 20px;
+	}
+
+	.count {
+		color: dimgrey;
+		font-size: .6em;
+		bottom: -.5em;
 	}
 
 	.listing-summaries {

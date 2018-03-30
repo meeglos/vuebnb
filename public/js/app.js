@@ -9088,7 +9088,7 @@ var populateAmenitiesAndPrices = function populateAmenitiesAndPrices(state) {
 var groupByCountry = function groupByCountry(listings) {
 	if (!listings) return {};
 	return listings.reduce(function (rv, x) {
-		var key = ['Taiwan', 'Poland', 'Cuba'].find(function (country) {
+		var key = ['Taiwan', 'Poland', 'Cuba', 'Spain'].find(function (country) {
 			return x.address.indexOf(country) > -1;
 		});
 		if (!rv[key]) {
@@ -16248,17 +16248,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-// import routeMixin from '../js/route-mixin';
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-	// mixins: [ routeMixin ],
-	// data() {
-	// 	return {
-	// 		listing_groups: []
-	// 	};
-	// },
 	methods: {
 		assignData: function assignData(_ref) {
 			var listings = _ref.listings;
@@ -16512,7 +16505,12 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "listing-summary-group" }, [
-    _c("h1", [_vm._v("Places in " + _vm._s(_vm.country))]),
+    _c("h1", [
+      _vm._v("Places in " + _vm._s(_vm.country) + " "),
+      _c("span", { staticClass: "count" }, [
+        _vm._v("(" + _vm._s(_vm.listings.length) + ")")
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "listing-carousel" }, [
       _c(

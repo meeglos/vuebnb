@@ -264,6 +264,11 @@ p {
 .listing-summary-group {
 	padding-bottom: 20px;
 }
+.count {
+	color: dimgrey;
+	font-size: .6em;
+	bottom: -.5em;
+}
 .listing-summaries {
 	display: flex;
 	flex-direction: row;
