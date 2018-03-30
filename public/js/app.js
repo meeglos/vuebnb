@@ -9567,13 +9567,17 @@ __WEBPACK_IMPORTED_MODULE_3_axios___default.a.defaults.headers.common = {
 	},
 	mutations: {
 		toggleSaved: function toggleSaved(state, id) {
-			var index = state.saved.findIndex(function (saved) {
-				return saved === id;
-			});
-			if (index === -1) {
-				state.saved.push(id);
+			if (state.auth) {
+				var index = state.saved.findIndex(function (saved) {
+					return saved === id;
+				});
+				if (index === -1) {
+					state.saved.push(id);
+				} else {
+					state.saved.splice(index, 1);
+				}
 			} else {
-				state.saved.splice(index, 1);
+				__WEBPACK_IMPORTED_MODULE_2__router__["a" /* default */].push('/login');
 			}
 		},
 		addData: function addData(state, _ref) {
@@ -10457,11 +10461,6 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CustomFooter_vue__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__CustomFooter_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__CustomFooter_vue__);
-//
-//
-//
-//
-//
 //
 //
 //

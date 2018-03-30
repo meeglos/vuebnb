@@ -12,9 +12,6 @@
     window.vuebnb_server_data = "{!! addslashes(json_encode($data)) !!}"
     window.csrf_token = "{{ csrf_token() }}"
   </script>
-  <script type="text/javascript">
-    window.vuebnb_server_data = "{!! addslashes(json_encode($data)) !!}"
-  </script>
 </head>
 <body>
 <div id="app"></div>

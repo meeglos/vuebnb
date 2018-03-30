@@ -18,11 +18,15 @@ export default new Vuex.Store({
 	},
 	mutations: {
 		toggleSaved(state, id) {
-			let index = state.saved.findIndex(saved => saved === id);
-			if (index === -1) {
-				state.saved.push(id);
+			if (state.auth) {
+				let index = state.saved.findIndex(saved => saved === id);
+				if (index === -1) {
+					state.saved.push(id);
+				} else {
+					state.saved.splice(index, 1);
+				}
 			} else {
-				state.saved.splice(index, 1);
+				router.push('/login');
 			}
 		},
 		addData(state, { route, data }) {

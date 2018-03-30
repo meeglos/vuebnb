@@ -6,17 +6,10 @@
   </div>
 </template>
 <script>
-	// import routeMixin from '../js/route-mixin';
 	import ListingSummaryGroup from './ListingSummaryGroup.vue';
 	import { groupByCountry } from '../js/helpers';
 
   export default {
-		// mixins: [ routeMixin ],
-    // data() {
-		// 	return {
-		// 		listing_groups: []
-		// 	};
-		// },
 		methods: {
 				assignData({ listings }) {
 					this.listing_groups = groupByCountry(listings);

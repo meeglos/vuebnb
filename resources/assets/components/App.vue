@@ -13,12 +13,7 @@
         </li>
         <li v-if="$store.state.auth">
           <a @click="logout">Log Out</a>
-          <form 
-            style="display: hidden" 
-            action="/logout"
-            method="POST" 
-            id="logout"
-          >
+          <form style="display: hidden" action="/logout" method="POST" id="logout">
             <input type="hidden" name="_token" :value="csrf_token"/>
           </form>
         </li>
