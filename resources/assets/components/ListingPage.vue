@@ -19,8 +19,8 @@
       <div class="lists">
         <feature-list title="Amenities" :items="listing.amenities">
           <template slot-scope="amenity">
-            <i class="fa fa-lg" :class="amenity.icon"></i>
-            <span>{{ amenity.title }}</span>
+            <i class="fa fa-lg" :class="amenity.title.icon"></i>
+            <span v-bind:class="{'amenity-not-available' : amenity.value}">{{ amenity.title.title }}</span>
           </template>
         </feature-list>
         <feature-list title="Prices" :items="listing.prices">
@@ -47,10 +47,7 @@
   import HeaderImage from './HeaderImage.vue';
   import ExpandableText from './ExpandableText.vue';
 
-  // import routeMixin from '../js/route-mixin';
-
   export default {
-    // mixins: [ routeMixin ],
     components: {
       ImageCarousel,
       ModalWindow,
@@ -58,19 +55,19 @@
       HeaderImage,
       ExpandableText
     },
-    computed: {
-      listing() {
-        return populateAmenitiesAndPrices(
-          this.$store.getters.getListing(this.$route.params.listing)
-        );
-      }
-    },
     methods: {
       assignData({ listing }) {
         Object.assign(this.$data, populateAmenitiesAndPrices(listing));
       },
       openModal() {
         this.$refs.imagemodal.modalOpen = true;
+      }
+    },
+    computed: {
+      listing() {
+        return populateAmenitiesAndPrices(
+          this.$store.getters.getListing(this.$route.params.listing)
+        );
       }
     }
   }
@@ -82,5 +79,9 @@
 
   .about h3 {
     font-size: 22px;
+  }
+  .amenity-not-available {
+    color:rgb(223, 7, 36);
+    text-decoration-line: line-through;
   }
 </style>

@@ -9061,7 +9061,9 @@ var populateAmenitiesAndPrices = function populateAmenitiesAndPrices(state) {
 	for (var key in state) {
 		var arr = key.split("_");
 		if (arr[0] === 'amenity') {
-			obj.amenities.push(key);
+			// amenities.status = state[key];
+			obj.amenities.push({ title: key, value: state[key] });
+			// console.log(obj.amenities);
 		}
 		if (arr[0] === 'price') {
 			obj.prices.push({ title: key, value: state[key] });
@@ -9071,8 +9073,10 @@ var populateAmenitiesAndPrices = function populateAmenitiesAndPrices(state) {
 		}
 	}
 
+	// obj.amenities = obj.amenities.map(item => amenities.get(item));
 	obj.amenities = obj.amenities.map(function (item) {
-		return amenities.get(item);
+		item.title = amenities.get(item.title);
+		return item;
 	});
 
 	obj.prices = obj.prices.map(function (item) {
@@ -10800,17 +10804,13 @@ var model = Object(__WEBPACK_IMPORTED_MODULE_0__js_helpers__["b" /* populateAmen
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   // mixins: [ routeMixin ],
+  // props: ['value'],
   components: {
     ImageCarousel: __WEBPACK_IMPORTED_MODULE_1__ImageCarousel_vue___default.a,
     ModalWindow: __WEBPACK_IMPORTED_MODULE_2__ModalWindow_vue___default.a,
     FeatureList: __WEBPACK_IMPORTED_MODULE_3__FeatureList_vue___default.a,
     HeaderImage: __WEBPACK_IMPORTED_MODULE_4__HeaderImage_vue___default.a,
     ExpandableText: __WEBPACK_IMPORTED_MODULE_5__ExpandableText_vue___default.a
-  },
-  computed: {
-    listing: function listing() {
-      return Object(__WEBPACK_IMPORTED_MODULE_0__js_helpers__["b" /* populateAmenitiesAndPrices */])(this.$store.getters.getListing(this.$route.params.listing));
-    }
   },
   methods: {
     assignData: function assignData(_ref) {
@@ -10820,6 +10820,11 @@ var model = Object(__WEBPACK_IMPORTED_MODULE_0__js_helpers__["b" /* populateAmen
     },
     openModal: function openModal() {
       this.$refs.imagemodal.modalOpen = true;
+    }
+  },
+  computed: {
+    listing: function listing() {
+      return Object(__WEBPACK_IMPORTED_MODULE_0__js_helpers__["b" /* populateAmenitiesAndPrices */])(this.$store.getters.getListing(this.$route.params.listing));
     }
   }
 });
@@ -11669,9 +11674,16 @@ var render = function() {
                   key: "default",
                   fn: function(amenity) {
                     return [
-                      _c("i", { staticClass: "fa fa-lg", class: amenity.icon }),
+                      _c("i", {
+                        staticClass: "fa fa-lg",
+                        class: amenity.title.icon
+                      }),
                       _vm._v(" "),
-                      _c("span", [_vm._v(_vm._s(amenity.title))])
+                      _c(
+                        "span",
+                        { class: { "amenity-not-available": amenity.value } },
+                        [_vm._v(_vm._s(amenity.title.title))]
+                      )
                     ]
                   }
                 }

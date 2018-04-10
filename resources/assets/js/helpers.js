@@ -26,7 +26,9 @@ let populateAmenitiesAndPrices = function (state) {
 	for (let key in state) {
 		let arr = key.split("_");
 		if (arr[0] === 'amenity') {
-			obj.amenities.push(key);
+			// amenities.status = state[key];
+			obj.amenities.push({ title: key, value: state[key] });
+			// console.log(obj.amenities);
 		}
 		if (arr[0] === 'price') {
 			obj.prices.push({ title: key, value: state[key] });
@@ -35,8 +37,12 @@ let populateAmenitiesAndPrices = function (state) {
 			obj.images.push(state[key]);
 		}
 	}
-
-	obj.amenities = obj.amenities.map(item => amenities.get(item));
+	
+	// obj.amenities = obj.amenities.map(item => amenities.get(item));
+	obj.amenities = obj.amenities.map(item => {
+		item.title = amenities.get(item.title);
+		return item;
+	});
 
 	obj.prices = obj.prices.map(item => {
 		item.title = prices.get(item.title);

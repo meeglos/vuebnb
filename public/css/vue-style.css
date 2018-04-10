@@ -77,6 +77,10 @@
 .about h3 {
   font-size: 22px;
 }
+.amenity-not-available {
+  color:rgb(223, 7, 36);
+  text-decoration-line: line-through;
+}
 
 .image-carousel {
 	height: 100%;
